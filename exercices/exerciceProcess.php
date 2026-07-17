@@ -1,6 +1,14 @@
 <?php
 
-for ($i=0; $i <= 5; $i++) {
-    echo "* \n";
-}
-    
+$fruits = [
+    "Pomme",
+    "Poire",
+    "Banane",
+    "Orange",
+    "Kiwi"
+];
+
+
+echo $fruits[0];
+echo $fruits[4];
+echo strlen($fruits[i]);

@@ -53,6 +53,15 @@ for ($i=0; $i < 100; $i++) {
 
 echo $somme . "\n";
 
+//Exercice 5 bis
+$somme = 0;
+
+for ($i=0; $i <= 100; $i++) {
+    $somme = $somme + $i; 
+}
+
+echo $somme;
+
 //Exercice 6 
 $chiffre = 0;
 
@@ -65,3 +74,17 @@ for ($i=0; $i <= 50; $i++) {
 
 
 //Exercice 7
+$affiche = [0 => "*",
+            1 => "**",
+            2 => "***",
+            3 => "****",
+            4 => "*****",
+            5 => "******"
+            ];
+
+for ($i=0; $i < 5; $i++) {
+    echo $affiche[$i] . "\n";
+}
+
+
+//Exercice 8

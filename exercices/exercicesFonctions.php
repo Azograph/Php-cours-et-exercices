@@ -201,7 +201,7 @@ function formaterNom(string $prenom, string $nom): string {
 
 echo formaterNom($prenom, $nom);
 
-//Exerice 11
+//Exerice 11 - Taille
 $texte = readline("saisir du texte \n");
 
 function nombreCaracteres(string $texte): int {
