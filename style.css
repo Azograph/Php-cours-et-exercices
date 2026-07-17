@@ -1,0 +1,12 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+    margin: auto;
+    width: 90%;
+}
+
+h2 {
+    margin-top: 2em;
+}
