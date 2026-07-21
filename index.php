@@ -144,6 +144,23 @@ for ($i=0; $i < strlen($mot); $i++) {
     echo $mot[$i] . "\n";
 }
 
+//Foreach 
+// ($nomdutableau as $1 => $2)
+// ($nomdutableau as $colonne => $contenuColonne)
+// Si je met que une seule variable ce sera le contenu qui sera pris en compte : 
+// ($nomdutableau as $1) 
+// ($nomdutableau as $contenuColonne) 
+    $tab_associatif = [
+        "prenom" => "mathieu",
+        "nom" => "Mithridate",
+        "ville" => "Toulouse"
+    ];
+
+foreach ($tab_associatif as $key => $value) {
+    echo $key. ":" . $value . "\n";
+}
+
+
 
 //TABLEAU
 //déclaration
@@ -197,10 +214,11 @@ $tab_users[1]["ville"] = "Albi";
 $tab_users[1]["tel"] = 0601020304;
 
 //parcourir un tableau
+// Supprimer une colone et retrier le tableau pour pas qu'il y ai de trous.
 for ($i=0; $i < count($tab_indexe) ; $i++) { 
     if ($i==0) {
-        unset($tab_indexe[0]);
-        sort($tab_indexe);
+        unset($tab_indexe[0]);      // Détruit la colone
+        sort($tab_indexe);          // Trie le tableau 
     }
     echo "index " . $tab_indexe[$i] ."\n";
     

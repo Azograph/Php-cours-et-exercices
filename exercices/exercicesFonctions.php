@@ -395,7 +395,7 @@ $nbr2 = readline();
 echo "Veuillez saisir un operateur : +,-,/,* \n";
 $operateur = readline();
 
-echo "le rÃ©sultat est : " . calculer($nbr1, $nbr2, $operateur);
+echo "le résultat est : " . calculer($nbr1, $nbr2, $operateur);
 
 
 //Exercice 21
