@@ -223,3 +223,64 @@ for ($i=0; $i < count($tab_indexe) ; $i++) {
     echo "index " . $tab_indexe[$i] ."\n";
     
 }
+
+
+//BDD
+
+//Fonction de connection à la BDD
+function connect_bdd() : PDO {
+        return new PDO(
+        'mysql:host=localhost:3306;dbname=receipt',
+        'root',
+        'root',
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+}
+
+
+function sanitize(string $str) : string {
+    return htmlentities(
+        htmlspecialchars(
+            strip_tags(
+                trim($str)
+            )
+        )
+    );
+}
+
+$str = "";
+$str = trim($str);
+
+$str = strip_tags($str);
+
+$str = htmlspecialchars($str);
+
+$str = htmlentities($str);
+
+
+//Ecrire, envoyer et récéptionner une requête :
+include 'connect_bdd.php';
+include '../vendor/autoload.php';
+
+    //1 écrire une requête
+    
+    $sql = "SELECT c.id, c.category_name  FROM category AS c ORDER BY c.id ASC";
+
+    //2 se connecter à BDD
+    $bdd = connect_bdd();
+
+    //3 préparation de la requête
+    $request = $bdd->prepare($sql);
+
+    //assignation des paramètres
+ /*    $request->bindValue(1, 2, PDO::PARAM_INT); */
+
+    //4 exécter la requête
+    $request->execute();
+
+    //5 récupérer la réponse
+    $data = $request->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $category) {
+        # code...
+        echo "Id " . $category["id"] . " nom : " . $category["category_name"] . "<br>";
+    }

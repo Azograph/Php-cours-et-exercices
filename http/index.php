@@ -333,9 +333,58 @@
 
         ?>
 
-        <h2>Exercice 5 </h2>
+    <h2>Exercice 5 </h2>
         
-        
+    <form action="" method="post">
+        <fieldset>
+            <label for="lastname">Saisir le nom</label>
+            <input type="text" name="lastname">
+            <label for="note">Saisir une note 1 à 5</label>
+            <input type="text" name="note">
+            <label for="commentary">Ajouter un commentaire (facultatif)</label>
+            <textarea name="commentary" cols="30" rows="10"></textarea>
+            <label for="condition">Accepter les conditions</label>
+            <input type="checkbox" name="condition">
+        </fieldset>
+        <input type="submit" value="Envoyer" name="submit">
+    </form>
+
+<?php
+
+if (isset($_POST["submit"])) {
+    //test des champs
+    if (
+        !empty($_POST["lastname"]) &&
+        !empty($_POST["note"])
+    ) {
+        //test de la note
+        if (
+            is_numeric($_POST["note"]) &&
+            $_POST["note"] >= 1 &&
+            $_POST["note"] <= 5
+        ) {
+            //test si la case est cochée
+            if (isset($_POST["condition"])) {
+                //test si le commentaire fait 500 caractères maximum
+                if (!empty($_POST["commentary"]) && strlen($_POST["commentary"]) > 500) {
+                    echo "Le commentaire doit faire au maximum 500 caractères";
+                }
+                echo "Résumé: <br>
+                Nom : " . $_POST["lastname"] . "<br>
+                Note : " . $_POST["note"] . "<br>";
+                echo ($_POST["commentary"] != "") ? "commentaire :" . $_POST["commentary"] : "";
+            } else {
+                echo "Les conditions sont obligatoires";
+            }
+        } else {
+            echo "Veuillez saisir une note valide (entre 1 et 5)";
+        }
+    } else {
+        echo "Veuillez renseigner tous les champs obligatoires";
+    }
+}
+
+?>
 
 
     </main>
