@@ -2,7 +2,6 @@
 
 include 'env.php';
 include 'bdd/bdd_connect.php';
-include 'model/category.php';
 
 
 function getAllCategories(): array {

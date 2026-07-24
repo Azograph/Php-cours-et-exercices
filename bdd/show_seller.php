@@ -18,8 +18,13 @@ function getAllSeller(): array {
         //récupérer les données
         $sellers = $request->fetchAll(PDO::FETCH_ASSOC);
     } catch(Exception $e) {
+        //renvoie le message d'erreur de la base de donnée
+        //à ne pas mettre en production
         echo $e->getMessage();
     }   
+    // Si la variable existe = renvoie la variable 
+    // Si elle est vide, renvoie un tableau vide
+    // Pareil que : isset($seller) ? $seller : [] ~
     return $sellers ?? [];
 }
 

@@ -237,7 +237,7 @@ function connect_bdd() : PDO {
     );
 }
 
-
+//Nettoyage des donées
 function sanitize(string $str) : string {
     return htmlentities(
         htmlspecialchars(
@@ -248,13 +248,11 @@ function sanitize(string $str) : string {
     );
 }
 
+
 $str = "";
 $str = trim($str);
-
 $str = strip_tags($str);
-
 $str = htmlspecialchars($str);
-
 $str = htmlentities($str);
 
 
@@ -263,7 +261,6 @@ include 'connect_bdd.php';
 include '../vendor/autoload.php';
 
     //1 écrire une requête
-    
     $sql = "SELECT c.id, c.category_name  FROM category AS c ORDER BY c.id ASC";
 
     //2 se connecter à BDD

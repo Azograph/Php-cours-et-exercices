@@ -292,4 +292,64 @@ for ($i=0; $i < count($users); $i++) {
 }
 
 
-//Exercice 20
+//Exercice 
+
+function add_notes()
+{
+    $notes = [];
+    $nbr_notes = readline("Combien voulez-vous ajouter de notes ?\n");
+    $index_min = 0;
+    $index_max = 0;
+    $note_min = 21;
+    $note_max = -1;
+    for ($i = 0; $i < $nbr_notes; $i++) {
+        $notes[$i]["prenom"] = readline("Saisir le prénom de l'éléve \n");
+        $notes[$i]["note"] = readline("Saisir la note de l'éléve \n");
+        //test de la note_max
+        if ($notes[$i]["note"] > $note_max) {
+            $index_max = $i;
+            $note_max = $notes[$i]["note"];
+        }
+        //test de la note_min
+        if ($notes[$i]["note"] < $note_min) {
+            $index_min = $i;
+            $note_min = $notes[$i]["note"];
+        }
+    }
+    echo "l'éléve : " . $notes[$index_max]["prenom"] . " a la meilleure note : " . $notes[$index_max]["note"] . "\n";
+    echo "l'éléve : " . $notes[$index_min]["prenom"] . " a la moins bonne note : " . $notes[$index_min]["note"] . "\n";
+}
+
+add_notes();
+
+//Exercice
+// Afficher pour chaque utilisateurs prénom, nom et si l'utilisateur est majeur ou mineur :
+
+$users = [
+    [
+        "firstname" => "Alice",
+        "lastname" => "Martin",
+        "age" => 25
+    ],
+    [
+        "firstname" => "Lucas",
+        "lastname" => "Petit",
+        "age" => 17
+    ],
+    [
+        "firstname" => "Emma",
+        "lastname" => "Durand",
+        "age" => 32
+    ]
+];
+
+//version boucle for
+for ($i=0; $i < count($users); $i++) { 
+    echo $users[$i]["firstname"] . " " . $users[$i]["lastname"];
+    echo $users[$i]["age"] >= 18 ? " est Majeur\n": " est Mineur\n";
+}
+
+//version boucle foreach
+//  foreach ($users as $user) {
+//     echo $user["firstname"] . " " . $user["lastname"];
+//     echo $user["age"] >= 18 ? " est Majeur\n": " est Mineur\n";

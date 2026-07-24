@@ -1,0 +1,5 @@
+Permet d'empecher certains fichier, dossier d'etre envoyer sur git hub 
+
+fichier.extention
+dossier/
+.exention (jpeg, png, mp3 ...)
